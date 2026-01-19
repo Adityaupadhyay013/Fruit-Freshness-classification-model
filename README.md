@@ -1,1 +1,1 @@
-
+It is an end to end ai application which contains a machine learning model for image based fruit fresh/rotten classification and provides some tips for maintaining the quality of fruits , effects of eating rotten fruits. This application contains fastapi backend and streamlit frontend. 
