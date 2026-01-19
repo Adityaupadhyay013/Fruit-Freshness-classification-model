@@ -2,10 +2,11 @@ import streamlit as st
 import requests
 from PIL import Image
 import io
-
+from FruitClassifier import Predictor
+import numpy as np 
+import cv2
+from gemini_setup import Gemini_ke_updesh
 # ---------------- CONFIG ----------------
-API_URL = "http://127.0.0.1:8000/predict"
-
 st.set_page_config(
     page_title="ML + Gemini Assistant",
     page_icon="🤖",
@@ -27,23 +28,15 @@ if uploaded_file:
 
     if st.button("🚀 Predict"):
         with st.spinner("Running ML model..."):
-            files = {
-                "file": uploaded_file.getvalue()
-            }
-
-            response = requests.post(API_URL, files=files)
-        if response.status_code == 200:
-            data = response.json()
-
+            img = np.array(image)
+            img = cv2.cvtColor(img , cv2.COLOR_RGB2BGR)
+            result = Predictor(img)
+            advice = Gemini_ke_updesh()
             st.success("Prediction Successful!")
-
             # ML Prediction
             st.subheader("🔍 ML Prediction")
-            st.write(data.get("Prediction"))
+            st.write(result)
 
             # Gemini Explanation
             st.subheader("🧠 Gemini Explanation")
-            st.info(data.get("Expert advice"))
-
-        else:
-            st.error("Failed to get response from API")
+            st.info(advice)
