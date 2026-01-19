@@ -38,7 +38,8 @@ if uploaded_file:
             st.write(result)
 
             # Gemini Explanation
-            st.subheader("🧠 Gemini advice , tips: ")
+            st.subheader("🧠 Gemini advice: ")
             st.info(advice)
+
 
 
