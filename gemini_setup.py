@@ -1,7 +1,7 @@
 import google.generativeai as genai
-from gemini_api_key import Gemini_api_key
+import os
 import re
-client = genai.Client(api_key = Gemini_api_key)
+client = genai.Client(api_key = os.getenv(Gemini_api_key))
 def Gemini_ke_updesh():
     try:
         response = client.models.generate_content(
@@ -15,4 +15,5 @@ def Gemini_ke_updesh():
         return "No advice available at this moment of time......"
     Text = re.sub(r"\*\*"  , "", Text)
     Text = re.sub(r"\n+" , " " , Text)
+
     return Text.replace("\\" , "")
