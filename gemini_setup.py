@@ -1,4 +1,4 @@
-from google import genai
+import google.generativeai as genai
 from gemini_api_key import Gemini_api_key
 import re
 client = genai.Client(api_key = Gemini_api_key)
