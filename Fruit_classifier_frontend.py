@@ -14,7 +14,7 @@ st.set_page_config(
 )
 
 # ---------------- UI ----------------
-st.title("🤖 ML Prediction with Gemini Explanation")
+st.title("🤖 Fruit quality(Fresh/Rotten) prediction with gemini tips")
 st.markdown("Upload an image to get **ML prediction + AI advice**.")
 
 uploaded_file = st.file_uploader(
@@ -40,3 +40,4 @@ if uploaded_file:
             # Gemini Explanation
             st.subheader("🧠 Gemini Explanation")
             st.info(advice)
+
