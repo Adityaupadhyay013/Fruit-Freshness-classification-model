@@ -47,6 +47,7 @@ def Predictor(img):
     model = joblib.load("Fruit Freshness Classification model.pkl")
     prediction = model.predict(df)
     if prediction[0] == 0:
-        return "Rotten"
+        return "Rotten❌"
     else:
-        return "Fresh"
+        return "Fresh✅"
+
